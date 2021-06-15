@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="client_list">
+      <field name="name">client list</field>
+      <field name="model">cc.client</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nui"/>
+          <field name="name"/>
+          <field name="surname"/>
+          <field name="phone"/>
+          <field name="home_id"/>
+          <field name="direction"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="client_form">
+      <field name="name">client form</field>
+      <field name="model">cc.client</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="nui"/>
+              <field name="name"/>
+              <field name="surname"/>
+              <field name="phone"/>
+              <field name="home_id"/>
+              <field name="direction"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="client_action_window">
+      <field name="name">Client</field>
+      <field name="res_model">cc.client</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- menu categories -->
+    <menuitem name="Clientes" id="client_menu" parent="client_menu_root" action="client_action_window" sequence="5"/>
+  
+  </data>
+</odoo>

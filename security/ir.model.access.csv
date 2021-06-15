@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cc_client,cc.client,model_cc_client,,1,1,1,1
+access_cc_home,cc.home,model_cc_home,,1,1,1,1
+access_cc_assign_materials,cc.assign.materials,model_cc_assign_materials,,1,1,1,1
+access_cc_assign_materials_line,cc.assign.materials.line,model_cc_assign_materials_line,,1,1,1,1

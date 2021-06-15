@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="clientTableTree">
+            <div class="row">
+                <div class="table-responsive col-lg-12 col-md-12">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nui</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Tipo de casa</th>
+                                <th scope="col">Direccion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="clients" t-as="client">
+                                <tr class="tc_hover">
+                                    <td><t t-esc="client.nui"></t></td>
+                                    <td><t t-esc="client.name"/></td>
+                                    <td><span t-field="client.surname"></span></td>
+                                    <td><t t-esc="client.phone"/></td>
+                                    <td><t t-esc="client.home_id.type_home"/></td>
+                                    <td><t t-esc="client.direction"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <span class="o_website_form_result_datatable"></span>
+                </div>
+            </div>
+        </template>
+
+    </data>
+</odoo>

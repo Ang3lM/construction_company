@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="clientess">
+            <t t-call="website.layout">
+                <t t-set="title">Cliente</t>
+                <div>
+                        <h3 class="mt32" >
+                             Registro del Cliente
+                        </h3>
+
+                        <form
+                           action="/client/create"
+                           method="post"
+                           id="patentPropertyForm"
+                           data-model_name="/client/create"
+                           data-success_page="/client/create"
+                           class="checkout_autoformat s_website_form oe_website_util"
+                           enctype="multipart/form-data"
+                           data-force_action="create"
+                           data-editable-form="false">
+                            <div>
+                                <input type="hidden" id="csrf" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <input type="hidden" name="id"/>
+                                <input type="hidden" name="session_token"/>
+
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="nui">Nui</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <input type="text" class="form-control o_website_form_input" name="nui" required="True"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="name">Nombre</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <input type="text" class="form-control o_website_form_input" name="name" required="True"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="surname">Apellido</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <input type="text" class="form-control o_website_form_input" name="surname" required="True"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="phone">Telefono</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <input type="text" class="form-control o_website_form_input" name="phone" required="True"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="home_id">Tipo de Casa</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <select name="home_id" class="form-control o_website_form_input" data-init="1" required="">
+                                            <option value="">Select</option>
+                                            <t t-foreach="homes" t-as="home">
+                                                <option t-att-value="home.id">
+                                                    <span t-esc="home.type_home"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="direction">Direccion</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <input type="text" class="form-control o_website_form_input" name="direction" required="True"/>
+                                    </div>
+                                </div>
+                                <button type="submit" t-attf-class="btn btn-success 'o_website_form_send pull-left">       
+                                    Enviar                
+                                </button>
+                            </div>
+                        </form>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
